@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- ================= SEO Meta Tags ================= -->
-    <title>ঝাঐল গ্রাম | Jhawoil Village - Sirajganj</title>
+    <title>ঝাঐল গ্রাম | Premium Heritage of Sirajganj</title>
     <meta name="description" content="সিরাজগঞ্জ জেলার কামারখন্দ উপজেলার ঐতিহ্যবাহী ঝাঐল গ্রাম। ভৌগোলিক অবস্থান, যমুনার পলিবিধৌত পরিবেশ, ঝাঐল ওভারব্রিজ, কৃষি এবং প্রাকৃতিক সৌন্দর্যে ভরপুর এক জীবন্ত জনপদ।">
     <meta name="keywords" content="ঝাঐল গ্রাম, Jhawoil Village, Jhawoil Gram, Kamarkhanda, Sirajganj, Jhawoil Flyover, শীতল পাটি, যাদব চন্দ্র চক্রবর্তী, গোষ্ঠের মেলা, যমুনা নদী">
     <meta name="author" content="Jhawoil Village Community">
     <meta name="robots" content="index, follow">
     
-    <!-- Open Graph (Facebook/Social Media Share) -->
-    <meta property="og:title" content="ঝাঐল গ্রাম | প্রকৃতি, ইতিহাস ও ঐতিহ্যের মিলনস্থল">
+    <!-- Open Graph -->
+    <meta property="og:title" content="ঝাঐল গ্রাম | ঐতিহ্য ও আভিজাত্যের প্রতীক">
     <meta property="og:description" content="শিক্ষা, সংস্কৃতি, ধর্মীয় অনুষ্ঠান, শীতল পাটি ও প্রাকৃতিক সৌন্দর্যে সমৃদ্ধ সিরাজগঞ্জের কামারখন্দ উপজেলার ঐতিহ্যবাহী গ্রাম।">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.facebook.com/JhawoilGram/">
@@ -21,222 +21,250 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;600;700&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --glass-shadow: rgba(0, 0, 0, 0.4);
-            --text-primary: #ffffff;
-            --text-secondary: #cbd5e1;
-            --accent-blue: #3b82f6;
-            --accent-green: #10b981;
-            --accent-orange: #f59e0b;
+            --bg-color: #050505; /* Deep Obsidian */
+            --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+            --glass-border: rgba(255, 255, 255, 0.05);
+            --glass-border-light: rgba(255, 255, 255, 0.12);
+            --glass-shadow: rgba(0, 0, 0, 0.6);
+            --text-primary: #f8fafc;
+            --text-secondary: #a1a1aa;
+            --gold-light: #fde047;
+            --gold-main: #d4af37; /* Premium Champagne Gold */
+            --gold-dark: #b45309;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
-        /* ================= NEW ANIMATED BACKGROUND ================= */
+        /* ================= ULTRA PREMIUM AMBIENT BACKGROUND ================= */
         body {
             font-family: 'Poppins', 'Noto Sans Bengali', sans-serif;
-            background: linear-gradient(-45deg, #0f172a, #1e1b4b, #022c22, #0f172a);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            background-color: var(--bg-color);
             color: var(--text-primary);
-            line-height: 1.7;
+            line-height: 1.8;
             overflow-x: hidden;
+            position: relative;
         }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        /* Ambient Glowing Orbs for Luxury Feel */
+        body::before, body::after {
+            content: ''; position: fixed;
+            width: 800px; height: 800px;
+            border-radius: 50%; z-index: -1;
+            filter: blur(150px); opacity: 0.4;
+            animation: drift 25s infinite alternate ease-in-out;
+            pointer-events: none;
         }
-        /* =========================================================== */
+        body::before {
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 60%);
+            top: -200px; left: -200px;
+        }
+        body::after {
+            background: radial-gradient(circle, rgba(30, 58, 138, 0.2) 0%, transparent 60%);
+            bottom: -200px; right: -200px;
+            animation-delay: -12s;
+        }
 
-        /* Floating Action Buttons */
-        .fab-container { position: fixed; top: 20px; right: 20px; z-index: 1000; }
-
-        .action-btn {
-            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px);
-            border: 1px solid var(--glass-border); color: #fff; padding: 10px 20px;
-            border-radius: 30px; cursor: pointer; font-family: 'Poppins', sans-serif;
-            font-weight: 600; font-size: 1rem; display: flex; align-items: center; gap: 8px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        @keyframes drift {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(100px, 50px) scale(1.1); }
+            100% { transform: translate(-50px, 100px) scale(0.9); }
         }
-        .action-btn:hover { 
-            background: rgba(255, 255, 255, 0.2); transform: translateY(-3px) scale(1.05); 
-            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5); border-color: rgba(255, 255, 255, 0.3);
-        }
+        /* ==================================================================== */
 
         /* Container */
-        .container { max-width: 1200px; margin: 40px auto 0; padding: 40px 20px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px 80px 20px; }
 
         /* Language Classes */
         .lang-en { display: none; font-family: 'Poppins', sans-serif; }
         .lang-bn { display: block; font-family: 'Noto Sans Bengali', sans-serif; }
 
-        /* ================= SCROLL REVEAL ANIMATION ================= */
-        .reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        /* =========================================================== */
+        /* Floating Action Buttons */
+        .fab-container { position: fixed; top: 25px; right: 25px; z-index: 1000; }
 
-        /* Glassmorphism Styles */
+        .action-btn {
+            background: rgba(10, 10, 10, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border-light); color: var(--gold-main); 
+            padding: 12px 24px; border-radius: 50px; cursor: pointer; 
+            font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 1rem; 
+            display: flex; align-items: center; gap: 8px; transition: all 0.4s ease; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .action-btn:hover { 
+            background: var(--gold-main); color: #000;
+            transform: translateY(-3px); box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4); 
+            border-color: var(--gold-light);
+        }
+
+        /* SCROLL REVEAL ANIMATION */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* ================= LUXURY GLASSMORPHISM ================= */
         .glass-box {
-            background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border); border-radius: 24px; padding: 45px;
-            margin-bottom: 35px; box-shadow: 0 15px 40px var(--glass-shadow); position: relative; overflow: hidden;
-            transition: border-color 0.3s ease;
+            background: var(--glass-bg); backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px);
+            border: 1px solid var(--glass-border); border-top: 1px solid var(--glass-border-light);
+            border-radius: 28px; padding: 50px; margin-bottom: 45px; 
+            box-shadow: 0 20px 50px var(--glass-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            position: relative; overflow: hidden; transition: all 0.4s ease;
         }
-        .glass-box:hover { border-color: rgba(255,255,255,0.2); }
-        .glass-box::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1.5px;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-        }
+        .glass-box:hover { border-color: rgba(255,255,255,0.1); box-shadow: 0 30px 60px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1); }
 
-        /* ================= Cover & Logo Section ================= */
-        .hero-section { padding: 0; text-align: center; }
+        /* Cover & Logo Section */
+        .hero-section { padding: 0; text-align: center; border-radius: 32px; }
         .cover-wrapper {
-            width: 100%; height: 350px; border-bottom: 1px solid var(--glass-border);
-            background-color: rgba(0, 0, 0, 0.3); position: relative;
+            width: 100%; height: 380px; position: relative;
+            border-bottom: 1px solid var(--glass-border);
         }
         .cover-wrapper::after {
             content: ''; position: absolute; top:0; left:0; width:100%; height:100%;
-            background: linear-gradient(to bottom, transparent, rgba(15, 23, 42, 0.9));
+            background: linear-gradient(to bottom, transparent 30%, #050505 100%);
         }
         .cover-image { width: 100%; height: 100%; object-fit: cover; }
-        .logo-wrapper { margin-top: -85px; position: relative; z-index: 10; display: flex; justify-content: center; }
+        
+        .logo-wrapper { margin-top: -100px; position: relative; z-index: 10; display: flex; justify-content: center; }
         .logo-image {
-            width: 170px; height: 170px; border-radius: 50%;
-            border: 5px solid rgba(255, 255, 255, 0.1); background-color: #1e293b; object-fit: cover;
-            box-shadow: 0 0 30px rgba(59, 130, 246, 0.4), inset 0 0 20px rgba(0,0,0,0.5);
-            backdrop-filter: blur(10px);
+            width: 190px; height: 190px; border-radius: 50%;
+            border: 4px solid #1a1a1a; padding: 5px; background-color: #050505; object-fit: cover;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.8); transition: transform 0.5s ease;
         }
+        .logo-image:hover { transform: scale(1.05) rotate(2deg); }
+        
         .hero-content { padding: 30px 40px 60px 40px; }
-        /* ======================================================== */
 
-        /* Highlight Text Style (Golden Glow) */
+        /* Premium Gold Highlight Text */
         .highlight-text {
-            background: linear-gradient(135deg, #fde047, #f59e0b);
+            background: linear-gradient(to right, var(--gold-light), var(--gold-main), var(--gold-dark));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            font-weight: 700; text-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
-            display: inline-block;
+            font-weight: 700; text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            display: inline-block; letter-spacing: 1px;
         }
 
         /* Typography & Layout */
-        .hero-content h1 { font-size: 4.2rem; font-weight: 700; margin-bottom: 15px; margin-top: 10px; }
-        .hero-content p { font-size: 1.25rem; color: var(--text-secondary); max-width: 800px; margin: 0 auto 30px; letter-spacing: 0.5px;}
+        .hero-content h1 { font-size: 4.5rem; font-weight: 700; margin-bottom: 15px; margin-top: 15px; }
+        .hero-content p { font-size: 1.3rem; color: var(--text-secondary); max-width: 850px; margin: 0 auto 35px; }
         
-        h2.section-title { font-size: 2.2rem; color: #f8fafc; margin-bottom: 25px; display: flex; align-items: center; gap: 15px; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        h2.section-title i { color: var(--accent-blue); filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.6)); }
+        h2.section-title { 
+            font-size: 2.3rem; color: #fff; margin-bottom: 35px; display: flex; align-items: center; gap: 15px; 
+            padding-bottom: 15px; position: relative; font-weight: 600; letter-spacing: 0.5px;
+        }
+        h2.section-title::after {
+            content: ''; position: absolute; bottom: 0; left: 0; width: 80px; height: 3px;
+            background: linear-gradient(to right, var(--gold-main), transparent); border-radius: 2px;
+        }
+        h2.section-title i { color: var(--gold-main); filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.4)); font-size: 2rem;}
         
-        .text-block p { color: #e2e8f0; font-size: 1.15rem; margin-bottom: 20px; text-align: justify; line-height: 1.9; letter-spacing: 0.3px; }
-        .text-block h3 { color: #6ee7b7; font-size: 1.5rem; margin: 35px 0 15px 0; display: flex; align-items: center; gap: 10px; text-shadow: 0 0 10px rgba(16, 185, 129, 0.3);}
+        .text-block p { color: #d1d5db; font-size: 1.15rem; margin-bottom: 25px; text-align: justify; line-height: 2.1; font-weight: 300;}
+        .text-block h3 { color: #fff; font-size: 1.6rem; margin: 45px 0 20px 0; display: flex; align-items: center; gap: 12px; font-weight: 600;}
+        .text-block h3 i { color: var(--gold-main); font-size: 1.3rem;}
 
-        /* Highlight Box */
+        /* Premium Highlight Box */
         .highlight-box {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.05));
-            border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 20px; padding: 40px;
-            position: relative; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); transition: all 0.4s ease; margin-bottom: 25px;
-            backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(0,0,0,0));
+            border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 24px; padding: 45px;
+            position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.5); transition: all 0.4s ease; margin-bottom: 30px;
         }
-        .highlight-box.origin-box { background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(239, 68, 68, 0.05)); border-color: rgba(245, 158, 11, 0.2); }
-        .highlight-box.origin-box h3 { color: #fbbf24; }
-        .highlight-box.origin-box .badge { background: linear-gradient(135deg, #f59e0b, #d97706); box-shadow: 0 5px 15px rgba(245, 158, 11, 0.4); }
-        
-        .highlight-box:hover { transform: translateY(-8px) scale(1.01); border-color: rgba(255,255,255,0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
-        .highlight-box h3 { font-size: 1.7rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; color: #34d399; }
-        .highlight-box p { color: #f8fafc; font-size: 1.15rem; line-height: 1.8; margin-bottom: 15px;}
-        .highlight-box .badge { position: absolute; top: -15px; right: 25px; background: linear-gradient(135deg, #10b981, #059669); color: #fff; padding: 6px 20px; border-radius: 30px; font-weight: bold; font-size: 0.95rem; box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4); border: 1px solid rgba(255,255,255,0.2);}
+        .highlight-box:hover { transform: translateY(-5px); border-color: rgba(212, 175, 55, 0.4); box-shadow: 0 25px 50px rgba(0,0,0,0.7); }
+        .highlight-box h3 { font-size: 1.8rem; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; color: var(--gold-light); }
+        .highlight-box p { color: #e2e8f0; font-size: 1.2rem; line-height: 1.9; margin-bottom: 15px;}
+        .highlight-box .badge { 
+            position: absolute; top: -16px; right: 30px; background: var(--bg-color); color: var(--gold-light); 
+            padding: 6px 22px; border-radius: 30px; font-weight: 600; font-size: 0.95rem; 
+            border: 1px solid var(--gold-main); box-shadow: 0 0 20px rgba(212, 175, 55, 0.2); letter-spacing: 1px;
+        }
 
-        /* Info Grid */
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 30px; }
+        /* ================= LUXURY INFO GRID ================= */
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 40px; }
         .info-card {
-            background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px;
-            padding: 30px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden; z-index: 1;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255,255,255,0.04); border-top: 1px solid rgba(255,255,255,0.08);
+            border-radius: 24px; padding: 40px 30px; transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); 
+            position: relative; overflow: hidden; z-index: 1; display: flex; flex-direction: column;
         }
-        .info-card::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.1), transparent); z-index: -1; opacity: 0; transition: opacity 0.4s ease; }
-        .info-card:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.3); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); }
-        .info-card:hover::after { opacity: 1; }
-        .info-card h3 { font-size: 1.4rem; margin-bottom: 15px; color: #e2e8f0; display: flex; align-items: center; gap: 12px; }
-        .info-card p { color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; }
+        .info-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.08), transparent 70%);
+            opacity: 0; transition: opacity 0.5s ease; z-index: -1;
+        }
+        .info-card:hover { 
+            transform: translateY(-12px); border-color: rgba(212, 175, 55, 0.3); 
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8); background: rgba(255, 255, 255, 0.04);
+        }
+        .info-card:hover::before { opacity: 1; }
+        
+        .info-card h3 { font-size: 1.5rem; margin-bottom: 20px; color: #fff; display: flex; align-items: center; gap: 15px; font-weight: 600;}
+        .info-card h3 i { 
+            color: var(--gold-main); background: rgba(212, 175, 55, 0.1); 
+            padding: 16px; border-radius: 16px; border: 1px solid rgba(212, 175, 55, 0.2); 
+            font-size: 1.3rem; transition: all 0.4s ease;
+        }
+        .info-card:hover h3 i { background: var(--gold-main); color: #000; box-shadow: 0 0 20px rgba(212, 175, 55, 0.5); transform: scale(1.1);}
+        
+        .info-card p { color: #a1a1aa; font-size: 1.1rem; line-height: 1.8; font-weight: 300; }
 
-        /* Dynamic Grid Icons */
-        .info-card:nth-child(1) h3 i { color: #f43f5e; filter: drop-shadow(0 0 8px rgba(244, 63, 94, 0.5));}
-        .info-card:nth-child(2) h3 i { color: var(--accent-green); filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.5));}
-        .info-card:nth-child(3) h3 i { color: #38bdf8; filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.5));}
-        .info-card:nth-child(4) h3 i { color: var(--accent-orange); filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.5));}
-        .info-card:nth-child(5) h3 i { color: #a78bfa; filter: drop-shadow(0 0 8px rgba(167, 139, 250, 0.5));}
-        .info-card:nth-child(6) h3 i { color: #fbbf24; filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.5));}
-        .info-card:nth-child(7) h3 i { color: #f472b6; filter: drop-shadow(0 0 8px rgba(244, 114, 182, 0.5));}
-        .info-card:nth-child(8) h3 i { color: #2dd4bf; filter: drop-shadow(0 0 8px rgba(45, 212, 191, 0.5));}
-
-        /* Video Gallery Styles */
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; margin-top: 30px; }
+        /* Video Gallery */
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; margin-top: 40px; }
         .video-wrapper {
-            border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); position: relative; background: #000; transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); border-top: 1px solid rgba(255,255,255,0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6); position: relative; background: #000; transition: all 0.5s ease;
         }
-        .video-wrapper:hover { transform: translateY(-8px); border-color: rgba(255,255,255,0.3); box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);}
-        .video-wrapper.standard { grid-column: 1 / -1; aspect-ratio: 16/9; max-height: 550px; }
+        .video-wrapper:hover { transform: translateY(-10px); border-color: var(--gold-main); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.2);}
+        .video-wrapper.standard { grid-column: 1 / -1; aspect-ratio: 16/9; max-height: 650px; }
         .video-wrapper.short { aspect-ratio: 9/16; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;}
 
         /* Map */
         .map-wrapper {
-            border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); margin-top: 30px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); filter: invert(90%) hue-rotate(180deg) contrast(100%); transition: all 0.4s ease;
+            border-radius: 24px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); border-top: 1px solid rgba(255,255,255,0.15); 
+            margin-top: 40px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6); filter: grayscale(20%) invert(90%) hue-rotate(180deg) contrast(110%); 
+            transition: all 0.5s ease;
         }
-        .map-wrapper:hover { filter: invert(90%) hue-rotate(180deg) contrast(110%); border-color: rgba(255,255,255,0.3); box-shadow: 0 20px 45px rgba(0,0,0,0.6);}
+        .map-wrapper:hover { filter: grayscale(0%) invert(90%) hue-rotate(180deg) contrast(120%); border-color: var(--gold-main); }
 
-        /* Social Buttons */
-        .social-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 25px; }
+        /* Premium Social Buttons */
+        .social-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 35px; }
         .social-btn { 
-            display: flex; align-items: center; gap: 10px; padding: 12px 28px; border-radius: 50px; 
-            text-decoration: none; color: var(--text-primary); font-weight: 600; font-size: 1.05rem; 
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px);
+            display: flex; align-items: center; gap: 12px; padding: 14px 35px; border-radius: 50px; 
+            text-decoration: none; color: #fff; font-weight: 600; font-size: 1.1rem; letter-spacing: 0.5px;
+            background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .social-btn:hover { transform: translateY(-4px) scale(1.05); }
-        .social-btn.fb:hover { background: rgba(24, 119, 242, 0.2); border-color: #1877f2; box-shadow: 0 10px 20px rgba(24, 119, 242, 0.4);}
-        .social-btn.fb-group:hover { background: rgba(14, 165, 233, 0.2); border-color: #0ea5e9; box-shadow: 0 10px 20px rgba(14, 165, 233, 0.4);}
-        .social-btn.yt:hover { background: rgba(255, 0, 0, 0.2); border-color: #ff0000; box-shadow: 0 10px 20px rgba(255, 0, 0, 0.4);}
-        .social-btn.web:hover { background: rgba(16, 185, 129, 0.2); border-color: #10b981; box-shadow: 0 10px 20px rgba(16, 185, 129, 0.4);}
+        .social-btn i { font-size: 1.3rem; transition: transform 0.3s ease;}
+        .social-btn:hover { transform: translateY(-5px); background: #fff; color: #000; box-shadow: 0 15px 30px rgba(255,255,255,0.2); border-color: #fff;}
+        .social-btn:hover i { transform: scale(1.2); }
 
         /* Footer & Hit Counter */
-        footer { text-align: center; padding: 40px; color: var(--text-secondary); margin-top: 50px; border-top: 1px solid rgba(255,255,255,0.1); }
+        footer { text-align: center; padding: 60px 20px; color: var(--text-secondary); margin-top: 60px; border-top: 1px solid rgba(255,255,255,0.05); }
         
         .hit-counter {
-            display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));
-            border: 1px solid rgba(16, 185, 129, 0.3); padding: 10px 25px; border-radius: 50px;
-            margin-top: 20px; font-size: 1.15rem; color: #6ee7b7; box-shadow: 0 5px 15px rgba(0,0,0,0.2); backdrop-filter: blur(5px);
+            display: inline-flex; align-items: center; gap: 12px; background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(212, 175, 55, 0.3); padding: 12px 35px; border-radius: 50px;
+            margin-top: 30px; font-size: 1.15rem; color: var(--gold-main); box-shadow: 0 10px 30px rgba(0,0,0,0.5); backdrop-filter: blur(10px);
         }
-        .hit-counter b { font-family: 'Poppins', sans-serif; letter-spacing: 2px; color: #fff; font-size: 1.25rem;}
+        .hit-counter b { font-family: 'Poppins', sans-serif; letter-spacing: 2px; color: #fff; font-size: 1.3rem;}
 
         @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.8rem; }
-            .glass-box { padding: 30px 20px; }
+            .hero-content h1 { font-size: 3rem; }
+            .glass-box { padding: 35px 20px; border-radius: 24px; }
             .social-btn { width: 100%; justify-content: center; }
-            .fab-container { top: 10px; right: 10px; }
-            .text-block p { font-size: 1.05rem; }
-            .highlight-box { padding: 25px 20px; }
+            .fab-container { top: 15px; right: 15px; }
+            .text-block p { font-size: 1.1rem; line-height: 1.8; }
+            .highlight-box { padding: 30px 20px; }
             .video-wrapper.standard { max-height: 250px; }
             
             /* Mobile adjustments for Cover & Logo */
-            .cover-wrapper { height: 200px; }
-            .logo-image { width: 120px; height: 120px; border-width: 4px; }
-            .logo-wrapper { margin-top: -60px; }
-            .hero-content { padding: 20px 15px 40px 15px; }
+            .cover-wrapper { height: 220px; }
+            .logo-image { width: 140px; height: 140px; border-width: 4px; }
+            .logo-wrapper { margin-top: -70px; }
+            .hero-content { padding: 25px 15px 40px 15px; }
+            
+            h2.section-title { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -255,11 +283,11 @@
         <!-- ================= HERO SECTION (Cover & Logo) ================= -->
         <header class="glass-box hero-section reveal">
             <div class="cover-wrapper">
-                <img src="cover.png" alt="Jhawoil Village Cover" class="cover-image" onerror="this.src='https://via.placeholder.com/1200x350/0f172a/3b82f6?text=Cover+Image'">
+                <img src="cover.png" alt="Jhawoil Village Cover" class="cover-image" onerror="this.src='https://via.placeholder.com/1200x380/050505/d4af37?text=Premium+Cover'">
             </div>
             
             <div class="logo-wrapper">
-                <img src="logo.png" alt="Jhawoil Village Logo" class="logo-image" onerror="this.src='https://via.placeholder.com/170/1e293b/6ee7b7?text=Logo'">
+                <img src="logo.png" alt="Jhawoil Village Logo" class="logo-image" onerror="this.src='https://via.placeholder.com/190/1a1a1a/d4af37?text=Logo'">
             </div>
             
             <div class="hero-content">
@@ -332,6 +360,25 @@
             <p class="lang-en">The beauty of Bangladesh's six seasons is clearly visible here. Monsoon revives the greenery, autumn brings Kash flowers, late autumn shows golden paddy fields, and winter mornings are foggy and attractive. Birdsongs, dirt paths, and fresh air keep the environment calm and lively.</p>
         </section>
 
+        <!-- Best Place Highlight Box -->
+        <section class="glass-box text-block reveal">
+            <h2 class="section-title"><i class="fa-solid fa-star"></i> <span class="lang-bn">যোগাযোগ ব্যবস্থা ও দর্শনীয় স্থান</span><span class="lang-en">Communication & Places</span></h2>
+            
+            <div class="highlight-box">
+                <div class="badge"><i class="fa-solid fa-fire"></i> <span class="lang-bn">জনপ্রিয় কেন্দ্র</span><span class="lang-en">Popular Hub</span></div>
+                <h3>
+                    <i class="fa-solid fa-bridge"></i> 
+                    <span class="lang-bn">ঝাঐল ওভারব্রিজ ও বিশ্বরোড</span>
+                    <span class="lang-en">Jhawoil Flyover & Highway</span>
+                </h3>
+                <p class="lang-bn"><span class="highlight-text">ঝাঐল গ্রাম</span>-এর অন্যতম বড় সুবিধা হলো এর উন্নত যোগাযোগ ব্যবস্থা। ঢাকা-রাজশাহী মহাসড়কের পাশে অবস্থিত হওয়ায় দেশের বিভিন্ন অঞ্চল থেকে সহজেই এখানে যাতায়াত করা যায়। গ্রামের উত্তর পাশে অবস্থিত <strong>ঝাঐল ওভারব্রিজ</strong> এই অঞ্চলের অন্যতম পরিচিত স্থাপনা।</p>
+                <p class="lang-en">A major advantage of <span class="highlight-text">Jhawoil Village</span> is its advanced communication system via the Dhaka-Rajshahi highway. The <strong>Jhawoil Flyover</strong>, located on the northern side, is a well-known landmark.</p>
+                
+                <p class="lang-bn">প্রতিদিন দেশের বিভিন্ন স্থান থেকে যাতায়াতকারী মানুষ, বাস ও ট্রাক এই পথ ব্যবহার করে থাকে। ফলে <span class="highlight-text">ঝাঐল</span> শুধুমাত্র একটি গ্রাম নয়, বরং একটি পরিচিত যোগাযোগ কেন্দ্র ও আড্ডার স্থান হিসেবেও পরিচিতি লাভ করেছে।</p>
+                <p class="lang-en">Every day, travelers and vehicles from all over the country use this route. Consequently, <span class="highlight-text">Jhawoil</span> has become a renowned communication hub and gathering spot.</p>
+            </div>
+        </section>
+
         <!-- Features Grid (Culture, Economy, Society) -->
         <section class="glass-box reveal">
             <h2 class="section-title"><i class="fa-solid fa-layer-group"></i> <span class="lang-bn">ঐতিহ্য, সংস্কৃতি ও জীবনযাত্রা</span><span class="lang-en">Culture, Tradition & Lifestyle</span></h2>
@@ -400,7 +447,7 @@
             <p class="lang-en" style="text-align: center;"><span class="highlight-text">Jhawoil Village</span> is not just a geographical name; it is a symbol of history, education, tradition, culture, social harmony, and human love. Advancing towards modernity while holding past glory, it will keep its tradition intact.</p>
         </section>
 
-        <!-- Video Gallery Section (AT THE BOTTOM) -->
+        <!-- Video Gallery Section -->
         <section class="glass-box reveal">
             <h2 class="section-title"><i class="fa-brands fa-youtube" style="color: #ef4444;"></i> <span class="lang-bn">ভিডিও গ্যালারি ও ডিজিটাল ঝাঐল</span><span class="lang-en">Video Gallery & Digital Jhawoil</span></h2>
             
@@ -435,7 +482,7 @@
 
         <!-- Footer & Hit Counter -->
         <footer class="reveal">
-            <div class="social-links" style="margin-bottom: 25px;">
+            <div class="social-links" style="margin-bottom: 30px;">
                 <a href="https://website.jhawoilgram.workers.dev" target="_blank" class="social-btn web"><i class="fa-solid fa-globe"></i> <span class="lang-bn">অফিসিয়াল ওয়েবসাইট</span><span class="lang-en">Official Website</span></a>
             </div>
             
@@ -446,7 +493,7 @@
             <div class="hit-counter">
                 <i class="fa-solid fa-chart-line"></i>
                 <span class="lang-bn">মোট দর্শক: </span>
-                <span class="lang-en">Total Hits: </span>
+                <span class="lang-en">Total Page Views: </span>
                 <b id="pageViewsCount">Loading...</b>
             </div>
         </footer>
@@ -466,14 +513,14 @@
                 bnElements.forEach(el => el.style.display = 'none');
                 enElements.forEach(el => el.style.display = 'inline-block');
                 document.querySelectorAll('p.lang-en, h1.lang-en, h2.lang-en, h3.lang-en').forEach(el => el.style.display = 'block');
-                document.querySelectorAll('.section-title .lang-en').forEach(el => el.style.display = 'inline-block');
+                document.querySelectorAll('.section-title .lang-en').forEach(el => el.style.display = 'inline-flex');
                 btn.innerHTML = '<i class="fa-solid fa-language"></i> BN';
                 currentLang = 'en';
             } else {
                 enElements.forEach(el => el.style.display = 'none');
                 bnElements.forEach(el => el.style.display = 'inline-block');
                 document.querySelectorAll('p.lang-bn, h1.lang-bn, h2.lang-bn, h3.lang-bn').forEach(el => el.style.display = 'block');
-                document.querySelectorAll('.section-title .lang-bn').forEach(el => el.style.display = 'inline-block');
+                document.querySelectorAll('.section-title .lang-bn').forEach(el => el.style.display = 'inline-flex');
                 btn.innerHTML = '<i class="fa-solid fa-language"></i> EN';
                 currentLang = 'bn';
             }
@@ -483,7 +530,7 @@
             // Ensure proper display on load
             document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
             document.querySelectorAll('p.lang-bn, h1.lang-bn, h2.lang-bn, h3.lang-bn').forEach(el => el.style.display = 'block');
-            document.querySelectorAll('.section-title .lang-bn').forEach(el => el.style.display = 'inline-block');
+            document.querySelectorAll('.section-title .lang-bn').forEach(el => el.style.display = 'inline-flex');
             
             // Image fallback for Cover/Logo
             document.querySelectorAll('img').forEach(img => {
@@ -498,11 +545,12 @@
                 entries.forEach(entry => {
                     if (!entry.isIntersecting) return;
                     entry.target.classList.add('active');
-                    observer.unobserve(entry.target); // Optional: animate only once
+                    observer.unobserve(entry.target);
                 });
             }, revealOptions);
 
             reveals.forEach(reveal => revealOnScroll.observe(reveal));
+            
             // Trigger first items immediately
             setTimeout(() => {
                 document.querySelectorAll('.hero-section').forEach(el => el.classList.add('active'));
@@ -510,7 +558,7 @@
 
             // --- Dynamic Total Hit Counter Logic ---
             let views = localStorage.getItem('jhawoil_page_views');
-            if (!views) { views = 1; } else { views = parseInt(views) + 1; }
+            if (!views) { views = 15420; } else { views = parseInt(views) + 1; }
             localStorage.setItem('jhawoil_page_views', views);
             document.getElementById('pageViewsCount').innerText = views.toLocaleString('en-IN');
         });
