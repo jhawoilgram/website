@@ -28,10 +28,11 @@
 
     <style>
         :root {
-            --glass-bg: rgba(255, 255, 255, 0.04);
-            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-shadow: rgba(0, 0, 0, 0.4);
             --text-primary: #ffffff;
-            --text-secondary: #94a3b8;
+            --text-secondary: #cbd5e1;
             --accent-blue: #3b82f6;
             --accent-green: #10b981;
             --accent-orange: #f59e0b;
@@ -39,32 +40,38 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
+        /* ================= NEW ANIMATED BACKGROUND ================= */
         body {
             font-family: 'Poppins', 'Noto Sans Bengali', sans-serif;
-            background-color: #0f172a;
-            background-image: 
-                radial-gradient(at 40% 20%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
-                radial-gradient(at 80% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
-                radial-gradient(at 0% 50%, rgba(16, 185, 129, 0.1) 0px, transparent 50%),
-                radial-gradient(at 80% 50%, rgba(244, 63, 94, 0.1) 0px, transparent 50%),
-                radial-gradient(at 0% 100%, rgba(245, 158, 11, 0.1) 0px, transparent 50%),
-                radial-gradient(at 80% 100%, rgba(99, 102, 241, 0.15) 0px, transparent 50%);
-            background-attachment: fixed;
+            background: linear-gradient(-45deg, #0f172a, #1e1b4b, #022c22, #0f172a);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
             color: var(--text-primary);
             line-height: 1.7;
+            overflow-x: hidden;
         }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        /* =========================================================== */
 
         /* Floating Action Buttons */
         .fab-container { position: fixed; top: 20px; right: 20px; z-index: 1000; }
 
         .action-btn {
-            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px);
             border: 1px solid var(--glass-border); color: #fff; padding: 10px 20px;
             border-radius: 30px; cursor: pointer; font-family: 'Poppins', sans-serif;
             font-weight: 600; font-size: 1rem; display: flex; align-items: center; gap: 8px;
-            transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
-        .action-btn:hover { background: rgba(255, 255, 255, 0.2); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4); }
+        .action-btn:hover { 
+            background: rgba(255, 255, 255, 0.2); transform: translateY(-3px) scale(1.05); 
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5); border-color: rgba(255, 255, 255, 0.3);
+        }
 
         /* Container */
         .container { max-width: 1200px; margin: 40px auto 0; padding: 40px 20px; }
@@ -73,156 +80,152 @@
         .lang-en { display: none; font-family: 'Poppins', sans-serif; }
         .lang-bn { display: block; font-family: 'Noto Sans Bengali', sans-serif; }
 
+        /* ================= SCROLL REVEAL ANIMATION ================= */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* =========================================================== */
+
         /* Glassmorphism Styles */
         .glass-box {
-            background: var(--glass-bg); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
-            border: 1px solid var(--glass-border); border-radius: 24px; padding: 40px;
-            margin-bottom: 30px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); position: relative; overflow: hidden;
+            background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border); border-radius: 24px; padding: 45px;
+            margin-bottom: 35px; box-shadow: 0 15px 40px var(--glass-shadow); position: relative; overflow: hidden;
+            transition: border-color 0.3s ease;
         }
+        .glass-box:hover { border-color: rgba(255,255,255,0.2); }
         .glass-box::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1.5px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
         }
 
         /* ================= Cover & Logo Section ================= */
-        .hero-section { 
-            padding: 0; /* Override padding for full-width cover */
-            text-align: center;
-        }
+        .hero-section { padding: 0; text-align: center; }
         .cover-wrapper {
-            width: 100%;
-            height: 300px;
-            border-bottom: 1px solid var(--glass-border);
-            background-color: rgba(0, 0, 0, 0.3); /* Fallback color */
+            width: 100%; height: 350px; border-bottom: 1px solid var(--glass-border);
+            background-color: rgba(0, 0, 0, 0.3); position: relative;
         }
-        .cover-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .cover-wrapper::after {
+            content: ''; position: absolute; top:0; left:0; width:100%; height:100%;
+            background: linear-gradient(to bottom, transparent, rgba(15, 23, 42, 0.9));
         }
-        .logo-wrapper {
-            margin-top: -75px; /* Overlaps the cover image */
-            position: relative;
-            z-index: 10;
-            display: flex;
-            justify-content: center;
-        }
+        .cover-image { width: 100%; height: 100%; object-fit: cover; }
+        .logo-wrapper { margin-top: -85px; position: relative; z-index: 10; display: flex; justify-content: center; }
         .logo-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 6px solid #0f172a; /* Matches body background */
-            background-color: #1e293b; /* Fallback background for logo */
-            object-fit: cover;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+            width: 170px; height: 170px; border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.1); background-color: #1e293b; object-fit: cover;
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.4), inset 0 0 20px rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
         }
-        .hero-content {
-            padding: 20px 40px 50px 40px;
-        }
+        .hero-content { padding: 30px 40px 60px 40px; }
         /* ======================================================== */
 
         /* Highlight Text Style (Golden Glow) */
         .highlight-text {
-            background: linear-gradient(to right, #fbbf24, #f59e0b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 700;
-            text-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+            background: linear-gradient(135deg, #fde047, #f59e0b);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-weight: 700; text-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
             display: inline-block;
         }
 
         /* Typography & Layout */
-        .hero-content h1 { font-size: 3.8rem; font-weight: 700; margin-bottom: 15px; margin-top: 10px; }
-        .hero-content p { font-size: 1.2rem; color: var(--text-secondary); max-width: 800px; margin: 0 auto 30px; }
+        .hero-content h1 { font-size: 4.2rem; font-weight: 700; margin-bottom: 15px; margin-top: 10px; }
+        .hero-content p { font-size: 1.25rem; color: var(--text-secondary); max-width: 800px; margin: 0 auto 30px; letter-spacing: 0.5px;}
         
-        h2.section-title { font-size: 2rem; color: #f8fafc; margin-bottom: 25px; display: flex; align-items: center; gap: 15px; padding-bottom: 10px; border-bottom: 1px solid var(--glass-border); }
-        h2.section-title i { color: var(--accent-blue); }
+        h2.section-title { font-size: 2.2rem; color: #f8fafc; margin-bottom: 25px; display: flex; align-items: center; gap: 15px; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        h2.section-title i { color: var(--accent-blue); filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.6)); }
         
         .text-block p { color: #e2e8f0; font-size: 1.15rem; margin-bottom: 20px; text-align: justify; line-height: 1.9; letter-spacing: 0.3px; }
-        .text-block h3 { color: #6ee7b7; font-size: 1.4rem; margin: 30px 0 15px 0; display: flex; align-items: center; gap: 10px; }
+        .text-block h3 { color: #6ee7b7; font-size: 1.5rem; margin: 35px 0 15px 0; display: flex; align-items: center; gap: 10px; text-shadow: 0 0 10px rgba(16, 185, 129, 0.3);}
 
         /* Highlight Box */
         .highlight-box {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(59, 130, 246, 0.1));
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            border-radius: 20px;
-            padding: 35px;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-            margin-bottom: 25px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.05));
+            border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 20px; padding: 40px;
+            position: relative; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); transition: all 0.4s ease; margin-bottom: 25px;
+            backdrop-filter: blur(10px);
         }
-        .highlight-box.origin-box { background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(239, 68, 68, 0.1)); border-color: rgba(245, 158, 11, 0.3); }
+        .highlight-box.origin-box { background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(239, 68, 68, 0.05)); border-color: rgba(245, 158, 11, 0.2); }
         .highlight-box.origin-box h3 { color: #fbbf24; }
-        .highlight-box.origin-box .badge { background: #f59e0b; box-shadow: 0 5px 15px rgba(245, 158, 11, 0.4); }
+        .highlight-box.origin-box .badge { background: linear-gradient(135deg, #f59e0b, #d97706); box-shadow: 0 5px 15px rgba(245, 158, 11, 0.4); }
         
-        .highlight-box:hover { transform: translateY(-5px); }
-        .highlight-box h3 { font-size: 1.6rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; color: #6ee7b7; }
+        .highlight-box:hover { transform: translateY(-8px) scale(1.01); border-color: rgba(255,255,255,0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .highlight-box h3 { font-size: 1.7rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; color: #34d399; }
         .highlight-box p { color: #f8fafc; font-size: 1.15rem; line-height: 1.8; margin-bottom: 15px;}
-        .highlight-box .badge { position: absolute; top: -15px; right: 20px; background: #10b981; color: #fff; padding: 6px 18px; border-radius: 20px; font-weight: bold; font-size: 0.95rem; box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4); }
+        .highlight-box .badge { position: absolute; top: -15px; right: 25px; background: linear-gradient(135deg, #10b981, #059669); color: #fff; padding: 6px 20px; border-radius: 30px; font-weight: bold; font-size: 0.95rem; box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4); border: 1px solid rgba(255,255,255,0.2);}
+
+        /* Info Grid */
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 30px; }
+        .info-card {
+            background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px;
+            padding: 30px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden; z-index: 1;
+        }
+        .info-card::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.1), transparent); z-index: -1; opacity: 0; transition: opacity 0.4s ease; }
+        .info-card:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.3); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); }
+        .info-card:hover::after { opacity: 1; }
+        .info-card h3 { font-size: 1.4rem; margin-bottom: 15px; color: #e2e8f0; display: flex; align-items: center; gap: 12px; }
+        .info-card p { color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; }
+
+        /* Dynamic Grid Icons */
+        .info-card:nth-child(1) h3 i { color: #f43f5e; filter: drop-shadow(0 0 8px rgba(244, 63, 94, 0.5));}
+        .info-card:nth-child(2) h3 i { color: var(--accent-green); filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.5));}
+        .info-card:nth-child(3) h3 i { color: #38bdf8; filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.5));}
+        .info-card:nth-child(4) h3 i { color: var(--accent-orange); filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.5));}
+        .info-card:nth-child(5) h3 i { color: #a78bfa; filter: drop-shadow(0 0 8px rgba(167, 139, 250, 0.5));}
+        .info-card:nth-child(6) h3 i { color: #fbbf24; filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.5));}
+        .info-card:nth-child(7) h3 i { color: #f472b6; filter: drop-shadow(0 0 8px rgba(244, 114, 182, 0.5));}
+        .info-card:nth-child(8) h3 i { color: #2dd4bf; filter: drop-shadow(0 0 8px rgba(45, 212, 191, 0.5));}
 
         /* Video Gallery Styles */
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 25px; }
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; margin-top: 30px; }
         .video-wrapper {
-            border-radius: 16px; overflow: hidden; border: 1px solid var(--glass-border);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); position: relative; background: rgba(0,0,0,0.5); transition: transform 0.3s ease;
+            border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); position: relative; background: #000; transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
-        .video-wrapper:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.2); }
+        .video-wrapper:hover { transform: translateY(-8px); border-color: rgba(255,255,255,0.3); box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);}
         .video-wrapper.standard { grid-column: 1 / -1; aspect-ratio: 16/9; max-height: 550px; }
         .video-wrapper.short { aspect-ratio: 9/16; }
-        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;}
 
         /* Map */
         .map-wrapper {
-            border-radius: 16px; overflow: hidden; border: 1px solid var(--glass-border); margin-top: 25px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); filter: invert(90%) hue-rotate(180deg) contrast(100%); transition: filter 0.3s ease;
+            border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); margin-top: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); filter: invert(90%) hue-rotate(180deg) contrast(100%); transition: all 0.4s ease;
         }
-        .map-wrapper:hover { filter: invert(90%) hue-rotate(180deg) contrast(110%); }
-
-        /* Info Grid */
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 30px; }
-        .info-card {
-            background: rgba(0, 0, 0, 0.25); border: 1px solid var(--glass-border); border-radius: 16px;
-            padding: 25px; transition: all 0.4s ease; position: relative; overflow: hidden; z-index: 1;
-        }
-        .info-card::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.05), transparent); z-index: -1; opacity: 0; transition: opacity 0.4s ease; }
-        .info-card:hover { transform: translateY(-8px); background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.2); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); }
-        .info-card:hover::after { opacity: 1; }
-        .info-card h3 { font-size: 1.35rem; margin-bottom: 15px; color: #e2e8f0; display: flex; align-items: center; gap: 12px; }
-        .info-card p { color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7; }
-
-        /* Dynamic Icons */
-        .info-card:nth-child(1) h3 i { color: #f43f5e; }
-        .info-card:nth-child(2) h3 i { color: var(--accent-green); }
-        .info-card:nth-child(3) h3 i { color: #38bdf8; }
-        .info-card:nth-child(4) h3 i { color: var(--accent-orange); }
-        .info-card:nth-child(5) h3 i { color: #a78bfa; }
-        .info-card:nth-child(6) h3 i { color: #fbbf24; }
-        .info-card:nth-child(7) h3 i { color: #f472b6; }
-        .info-card:nth-child(8) h3 i { color: #2dd4bf; }
+        .map-wrapper:hover { filter: invert(90%) hue-rotate(180deg) contrast(110%); border-color: rgba(255,255,255,0.3); box-shadow: 0 20px 45px rgba(0,0,0,0.6);}
 
         /* Social Buttons */
-        .social-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 20px; }
-        .social-btn { display: flex; align-items: center; gap: 10px; padding: 12px 25px; border-radius: 50px; text-decoration: none; color: var(--text-primary); font-weight: 600; font-size: 1rem; transition: all 0.3s ease; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); }
-        .social-btn:hover { transform: translateY(-3px); }
-        .social-btn.fb:hover { background: rgba(24, 119, 242, 0.2); border-color: #1877f2; }
-        .social-btn.fb-group:hover { background: rgba(14, 165, 233, 0.2); border-color: #0ea5e9; }
-        .social-btn.yt:hover { background: rgba(255, 0, 0, 0.2); border-color: #ff0000; }
-        .social-btn.web:hover { background: rgba(16, 185, 129, 0.2); border-color: #10b981; }
+        .social-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 25px; }
+        .social-btn { 
+            display: flex; align-items: center; gap: 10px; padding: 12px 28px; border-radius: 50px; 
+            text-decoration: none; color: var(--text-primary); font-weight: 600; font-size: 1.05rem; 
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px);
+        }
+        .social-btn:hover { transform: translateY(-4px) scale(1.05); }
+        .social-btn.fb:hover { background: rgba(24, 119, 242, 0.2); border-color: #1877f2; box-shadow: 0 10px 20px rgba(24, 119, 242, 0.4);}
+        .social-btn.fb-group:hover { background: rgba(14, 165, 233, 0.2); border-color: #0ea5e9; box-shadow: 0 10px 20px rgba(14, 165, 233, 0.4);}
+        .social-btn.yt:hover { background: rgba(255, 0, 0, 0.2); border-color: #ff0000; box-shadow: 0 10px 20px rgba(255, 0, 0, 0.4);}
+        .social-btn.web:hover { background: rgba(16, 185, 129, 0.2); border-color: #10b981; box-shadow: 0 10px 20px rgba(16, 185, 129, 0.4);}
 
         /* Footer & Hit Counter */
-        footer { text-align: center; padding: 30px; color: var(--text-secondary); margin-top: 40px; border-top: 1px solid var(--glass-border); }
+        footer { text-align: center; padding: 40px; color: var(--text-secondary); margin-top: 50px; border-top: 1px solid rgba(255,255,255,0.1); }
         
         .hit-counter {
-            display: inline-flex; align-items: center; gap: 10px; background: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.3); padding: 8px 20px; border-radius: 30px;
-            margin-top: 15px; font-size: 1.1rem; color: #6ee7b7;
+            display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));
+            border: 1px solid rgba(16, 185, 129, 0.3); padding: 10px 25px; border-radius: 50px;
+            margin-top: 20px; font-size: 1.15rem; color: #6ee7b7; box-shadow: 0 5px 15px rgba(0,0,0,0.2); backdrop-filter: blur(5px);
         }
-        .hit-counter b { font-family: 'Poppins', sans-serif; letter-spacing: 2px; }
+        .hit-counter b { font-family: 'Poppins', sans-serif; letter-spacing: 2px; color: #fff; font-size: 1.25rem;}
 
         @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.5rem; }
-            .glass-box { padding: 25px; }
+            .hero-content h1 { font-size: 2.8rem; }
+            .glass-box { padding: 30px 20px; }
             .social-btn { width: 100%; justify-content: center; }
             .fab-container { top: 10px; right: 10px; }
             .text-block p { font-size: 1.05rem; }
@@ -231,10 +234,9 @@
             
             /* Mobile adjustments for Cover & Logo */
             .cover-wrapper { height: 200px; }
-            .logo-image { width: 110px; height: 110px; border-width: 4px; }
-            .logo-wrapper { margin-top: -55px; }
-            .hero-content { padding: 15px 20px 40px 20px; }
-            .glass-box.hero-section { padding: 0; }
+            .logo-image { width: 120px; height: 120px; border-width: 4px; }
+            .logo-wrapper { margin-top: -60px; }
+            .hero-content { padding: 20px 15px 40px 15px; }
         }
     </style>
 </head>
@@ -250,16 +252,14 @@
     <!-- Main Content -->
     <div class="container">
         
-        <!-- ================= HERO SECTION (WITH COVER & LOGO) ================= -->
-        <header class="glass-box hero-section">
-            <!-- Cover Image -->
+        <!-- ================= HERO SECTION (Cover & Logo) ================= -->
+        <header class="glass-box hero-section reveal">
             <div class="cover-wrapper">
-                <img src="cover.png" alt="Jhawoil Village Cover" class="cover-image" onerror="this.src='https://via.placeholder.com/1200x300/0f172a/3b82f6?text=Cover+Image'">
+                <img src="cover.png" alt="Jhawoil Village Cover" class="cover-image" onerror="this.src='https://via.placeholder.com/1200x350/0f172a/3b82f6?text=Cover+Image'">
             </div>
             
-            <!-- Logo Image -->
             <div class="logo-wrapper">
-                <img src="logo.png" alt="Jhawoil Village Logo" class="logo-image" onerror="this.src='https://via.placeholder.com/150/1e293b/6ee7b7?text=Logo'">
+                <img src="logo.png" alt="Jhawoil Village Logo" class="logo-image" onerror="this.src='https://via.placeholder.com/170/1e293b/6ee7b7?text=Logo'">
             </div>
             
             <div class="hero-content">
@@ -276,10 +276,9 @@
                 </div>
             </div>
         </header>
-        <!-- ================================================================ -->
 
         <!-- Introduction Section -->
-        <section class="glass-box text-block">
+        <section class="glass-box text-block reveal">
             <h2 class="section-title"><i class="fa-solid fa-book-open"></i> <span class="lang-bn">পরিচিতি</span><span class="lang-en">Introduction</span></h2>
             
             <p class="lang-bn"><span class="highlight-text">ঝাঐল গ্রাম</span> বাংলাদেশের উত্তরাঞ্চলের ঐতিহ্যবাহী জেলা সিরাজগঞ্জের কামারখন্দ উপজেলার অন্তর্গত একটি সুপরিচিত ও ইতিহাসবাহী জনপদ। যমুনা নদীর পলিবিধৌত উর্বর ভূমিতে গড়ে ওঠা এই গ্রাম প্রাকৃতিক সৌন্দর্য, শিক্ষা, সংস্কৃতি, কুটির শিল্প, সামাজিক সম্প্রীতি এবং ঐতিহাসিক গৌরবের জন্য পরিচিত।</p>
@@ -290,16 +289,12 @@
         </section>
 
         <!-- Naming & Origin Highlight Box -->
-        <section class="glass-box text-block">
+        <section class="glass-box text-block reveal">
             <h2 class="section-title"><i class="fa-solid fa-seedling"></i> <span class="lang-bn">নামকরণের ইতিহাস</span><span class="lang-en">History of Naming</span></h2>
             
             <div class="highlight-box origin-box">
                 <div class="badge"><i class="fa-solid fa-scroll"></i> <span class="lang-bn">ইতিহাস</span><span class="lang-en">History</span></div>
-                <h3>
-                    <i class="fa-brands fa-pagelines"></i> 
-                    <span class="lang-bn">যেভাবে এলো "ঝাঐল" নাম</span>
-                    <span class="lang-en">How the name originated</span>
-                </h3>
+                <h3><i class="fa-brands fa-pagelines"></i> <span class="lang-bn">যেভাবে এলো "ঝাঐল" নাম</span><span class="lang-en">How the name originated</span></h3>
                 <p class="lang-bn"><span class="highlight-text">ঝাঐল</span> নামের উৎপত্তি নিয়ে স্থানীয়ভাবে বিভিন্ন জনশ্রুতি প্রচলিত রয়েছে। ধারণা করা হয়, বহু বছর আগে এই অঞ্চলটি ঝাউ জাতীয় গাছ, খাল-বিল ও জলাভূমিতে পরিপূর্ণ ছিল। <strong>"ঝাউ"</strong> শব্দ থেকে ধীরে ধীরে <strong>"ঝাঐল"</strong> নামের উৎপত্তি হয়েছে বলে অনেকে মনে করেন।</p>
                 <p class="lang-en">There are local myths regarding the origin of the name <span class="highlight-text">Jhawoil</span>. It is believed that many years ago, this region was full of Jhau trees and wetlands. Many believe the name <strong>"Jhawoil"</strong> gradually originated from the word <strong>"Jhau"</strong>.</p>
                 
@@ -309,7 +304,7 @@
         </section>
 
         <!-- History & Pride Section -->
-        <section class="glass-box text-block">
+        <section class="glass-box text-block reveal">
             <h2 class="section-title"><i class="fa-solid fa-monument"></i> <span class="lang-bn">ইতিহাস ও গৌরব</span><span class="lang-en">History & Pride</span></h2>
             
             <h3><i class="fa-solid fa-water"></i> <span class="lang-bn">প্রাচীন ইতিহাস</span><span class="lang-en">Ancient History</span></h3>
@@ -326,7 +321,7 @@
         </section>
 
         <!-- Geographical Location & Environment -->
-        <section class="glass-box text-block">
+        <section class="glass-box text-block reveal">
             <h2 class="section-title"><i class="fa-solid fa-earth-asia"></i> <span class="lang-bn">ভৌগোলিক অবস্থান ও প্রকৃতি</span><span class="lang-en">Location & Nature</span></h2>
             
             <p class="lang-bn"><span class="highlight-text">ঝাঐল গ্রাম</span> সিরাজগঞ্জ জেলার কামারখন্দ উপজেলার অন্তর্গত। ঢাকা-রাজশাহী মহাসড়কের পাশে অবস্থিত হওয়ায় এটি অত্যন্ত গুরুত্বপূর্ণ যোগাযোগ কেন্দ্র। যমুনা নদীর পলিবিধৌত সমভূমিতে অবস্থিত হওয়ায় এখানকার মাটি কৃষির জন্য অত্যন্ত উপযোগী। চারপাশে সবুজ মাঠ, খাল-বিল ও গ্রামীণ পরিবেশ গ্রামের সৌন্দর্য বৃদ্ধি করেছে।</p>
@@ -338,7 +333,7 @@
         </section>
 
         <!-- Features Grid (Culture, Economy, Society) -->
-        <section class="glass-box">
+        <section class="glass-box reveal">
             <h2 class="section-title"><i class="fa-solid fa-layer-group"></i> <span class="lang-bn">ঐতিহ্য, সংস্কৃতি ও জীবনযাত্রা</span><span class="lang-en">Culture, Tradition & Lifestyle</span></h2>
             
             <div class="info-grid">
@@ -391,7 +386,7 @@
         </section>
 
         <!-- Google Map Section -->
-        <section class="glass-box map-section">
+        <section class="glass-box map-section reveal">
             <h2 class="section-title"><i class="fa-solid fa-map-location-dot"></i> <span class="lang-bn">মানচিত্রে <span class="highlight-text">ঝাঐল গ্রাম</span></span><span class="lang-en">Location on Map</span></h2>
             <div class="map-wrapper">
                 <iframe src="https://maps.google.com/maps?q=Jhawoil+Gram,+Sirajganj&t=&z=14&ie=UTF8&iwloc=&output=embed" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -399,14 +394,14 @@
         </section>
 
         <!-- Conclusion -->
-        <section class="glass-box text-block" style="text-align: center;">
+        <section class="glass-box text-block reveal" style="text-align: center;">
             <h2 class="section-title" style="justify-content: center;"><i class="fa-solid fa-heart"></i> <span class="lang-bn">ঐতিহ্য ও গৌরবের প্রতীক</span><span class="lang-en">Symbol of Pride</span></h2>
             <p class="lang-bn" style="text-align: center;"><span class="highlight-text">ঝাঐল গ্রাম</span> শুধু একটি ভৌগোলিক নাম নয়; এটি ইতিহাস, শিক্ষা, ঐতিহ্য, সংস্কৃতি, সামাজিক সম্প্রীতি ও মানুষের ভালোবাসার প্রতীক। অতীতের গৌরব ধারণ করে আধুনিকতার পথে এগিয়ে চলা এই গ্রাম ভবিষ্যতেও তার ঐতিহ্য ও মর্যাদা অটুট রাখবে।</p>
             <p class="lang-en" style="text-align: center;"><span class="highlight-text">Jhawoil Village</span> is not just a geographical name; it is a symbol of history, education, tradition, culture, social harmony, and human love. Advancing towards modernity while holding past glory, it will keep its tradition intact.</p>
         </section>
 
         <!-- Video Gallery Section (AT THE BOTTOM) -->
-        <section class="glass-box">
+        <section class="glass-box reveal">
             <h2 class="section-title"><i class="fa-brands fa-youtube" style="color: #ef4444;"></i> <span class="lang-bn">ভিডিও গ্যালারি ও ডিজিটাল ঝাঐল</span><span class="lang-en">Video Gallery & Digital Jhawoil</span></h2>
             
             <div class="text-block">
@@ -419,23 +414,19 @@
                 <div class="video-wrapper standard">
                     <iframe src="https://www.youtube.com/embed/ellXfYjcmY8?si=BDqSsRD1i4p-pNga" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
-                
                 <!-- YouTube Short 1 -->
                 <div class="video-wrapper short">
                     <iframe src="https://www.youtube.com/embed/fURo6gemxFM?si=jjim18Lj_F7QOl6H" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
-                
                 <!-- YouTube Short 2 -->
                 <div class="video-wrapper short">
                     <iframe src="https://www.youtube.com/embed/WD7INw848i4?si=jEeE8Ik-yOVlAyN6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
-                
                 <!-- YouTube Short 3 -->
                 <div class="video-wrapper short">
                     <iframe src="https://www.youtube.com/embed/3Wutn976tCo?si=ZQ7_53kIfVbZhPuq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
-
-                <!-- YouTube Short 4 (NEWLY ADDED) -->
+                <!-- YouTube Short 4 -->
                 <div class="video-wrapper short">
                     <iframe src="https://www.youtube.com/embed/l1uSM2PqZUo?si=6v7cv7nlt00yeh8t" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
@@ -443,8 +434,8 @@
         </section>
 
         <!-- Footer & Hit Counter -->
-        <footer>
-            <div class="social-links" style="margin-bottom: 20px;">
+        <footer class="reveal">
+            <div class="social-links" style="margin-bottom: 25px;">
                 <a href="https://website.jhawoilgram.workers.dev" target="_blank" class="social-btn web"><i class="fa-solid fa-globe"></i> <span class="lang-bn">অফিসিয়াল ওয়েবসাইট</span><span class="lang-en">Official Website</span></a>
             </div>
             
@@ -494,22 +485,32 @@
             document.querySelectorAll('p.lang-bn, h1.lang-bn, h2.lang-bn, h3.lang-bn').forEach(el => el.style.display = 'block');
             document.querySelectorAll('.section-title .lang-bn').forEach(el => el.style.display = 'inline-block');
             
-            // If image fails to load, use a fallback layout for Logo/Cover
+            // Image fallback for Cover/Logo
             document.querySelectorAll('img').forEach(img => {
-                img.addEventListener('error', function() {
-                    this.style.display = 'none';
-                });
+                img.addEventListener('error', function() { this.style.display = 'none'; });
             });
+
+            // --- Scroll Reveal Animation Logic ---
+            const reveals = document.querySelectorAll('.reveal');
+            const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+            
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Optional: animate only once
+                });
+            }, revealOptions);
+
+            reveals.forEach(reveal => revealOnScroll.observe(reveal));
+            // Trigger first items immediately
+            setTimeout(() => {
+                document.querySelectorAll('.hero-section').forEach(el => el.classList.add('active'));
+            }, 100);
 
             // --- Dynamic Total Hit Counter Logic ---
             let views = localStorage.getItem('jhawoil_page_views');
-            
-            if (!views) {
-                views = 1; // Starting point
-            } else {
-                views = parseInt(views) + 1; // Increment on load
-            }
-            
+            if (!views) { views = 1; } else { views = parseInt(views) + 1; }
             localStorage.setItem('jhawoil_page_views', views);
             document.getElementById('pageViewsCount').innerText = views.toLocaleString('en-IN');
         });
